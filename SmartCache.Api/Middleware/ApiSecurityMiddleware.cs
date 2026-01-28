@@ -9,12 +9,13 @@ namespace SmartCache.Api.Middleware
         // In a real production setup, _next(context) must be called
         // to allow the request to reach controllers and other middleware.
 
+        private readonly RequestDelegate _next;
         private readonly string _apiKey;
         private readonly string? _bearerToken;
 
         public ApiSecurityMiddleware(RequestDelegate next, IConfiguration config)
         {
-            //_next = next;
+            _next = next;
             _apiKey = config["Security:ApiKey"] ?? throw new ArgumentNullException("ApiKey missing in config");
             _bearerToken = config["Security:BearerToken"];
         }
@@ -42,8 +43,8 @@ namespace SmartCache.Api.Middleware
                 }
             }
 
-            // All good, call next middleware (intentionally omitted for proof-of-concept)
-            //await _next(context);
+            // All good, call next middleware 
+            await _next(context);
         }
     }
 }
