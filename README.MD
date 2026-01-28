@@ -137,28 +137,29 @@ Results are displayed separately for POST and GET operations, allowing direct co
 ## Screenshots
 
 **Figure 1: Multiple startup projects configuration** 
-![Multiple Startup projects launch profile](image-2.png)
+![Multiple Startup projects launch profile](screenshots/pic1.png)
+
 *Visual Studio launch profile configured to start both the API and Stress Test projects simultaneously.*
 
 **Figure 2: Unit test results** 
-![Unit Tests](image-1.png)
+![Unit Tests](screenshots/pic2.png)
 *Unit tests using a fake in-memory grain implementation to validate core logic without requiring a live Orleans cluster or Azure Blob Storage.*
 
 **Figure 3: Stress test results**  
-![Stress Test Results (In-memory or Azure blob storage)](image-4.png)
+![Stress Test Results (In-memory or Azure blob storage)](screenshots/pic3.png)
 *Stress test results executed against the live API, measuring throughput and response behavior using in-memory or Azure Blob Storage persistence.*
 
 **Figure 4: Swagger (GET) CODE 404**  
-![alt text](image-5.png)
+![alt text](screenshots/pic4.png)
 
 **Figure 5: Swagger (GET) CODE 400** 
-![alt text](image-6.png)
+![alt text](screenshots/pic5.png)
 
 **Figure 5: Swagger (GET) CODE 200** 
-![alt text](image-9.png)
+![alt text](screenshots/pic6.png)
 
 **Figure 7: Azure Blob Storage stored grain states**  
-![alt text](image-7.png)
+![alt text](screenshots/pic7.png)
 Figure 7 shows the Azure Storage account used by the application.  
 Each JSON blob represents the persisted state of a single Orleans grain.
 
@@ -166,7 +167,7 @@ The blobs are stored in the `state-emailcheck` container and are named using the
 In this example, 11 blobs are present, corresponding to 11 distinct email domains, following the design choice of using one grain per domain.
 
 **Figure 8: Azure Blob Storage grain state details**
-![alt text](image-8.png)
+![alt text](screenshots/pic8.png)
 Figure 8 shows the contents of a single Azure Blob after opening it in edit mode.  
 The blob contains the serialized state of one Orleans grain, including all breached email addresses associated with a specific domain.
 
