@@ -7,15 +7,24 @@ namespace SmartCache.Orleans.Grains
     public class EmailCheckGrain : Grain<EmailCheckState>, IEmailCheckGrain
     {
         private IDisposable _timer;
+        private StorageType _storageType;
 
         public override Task OnActivateAsync(CancellationToken cancellationToken)
         {
+            // storage type based on provider
+            _storageType = this.GrainReference.GetPrimaryKeyString().Contains("InMemory")
+                ? StorageType.InMemory
+                : StorageType.AzureBlob;
+
             _timer = this.RegisterGrainTimer<object?>(
-                callback: async (_, ct) => await WriteStateAsync(),
+                callback: async (_, ct) =>
+                {
+                   await WriteStateAsync();
+                },
                 state: null,
                 options: new GrainTimerCreationOptions(
-                    dueTime: TimeSpan.FromMinutes(1),
-                    period: TimeSpan.FromMinutes(1))
+                    dueTime: TimeSpan.FromMinutes(5),
+                    period: TimeSpan.FromMinutes(5))
                 {
                     Interleave = true,
                     KeepAlive = true
@@ -24,7 +33,6 @@ namespace SmartCache.Orleans.Grains
 
             return base.OnActivateAsync(cancellationToken);
         }
-
 
         public override Task OnDeactivateAsync(DeactivationReason reason, CancellationToken cancellationToken)
         {
@@ -42,7 +50,7 @@ namespace SmartCache.Orleans.Grains
                 IsPwned = isPwned,
                 BreachCount = isPwned ? 1 : 0,
                 CheckedAtUtc = DateTime.UtcNow,
-                Source = "memory"
+                Source = _storageType.ToString().ToLower() // "inmemory" or "azureblob"
             });
         }
 
@@ -54,8 +62,14 @@ namespace SmartCache.Orleans.Grains
                 return false;
 
             State.BreachedEmails.Add(email);
-            await WriteStateAsync();
+            //await WriteStateAsync();
             return true;
+        }
+
+        public enum StorageType
+        {
+            InMemory,
+            AzureBlob
         }
     }
 }

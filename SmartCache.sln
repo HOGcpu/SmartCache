@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCache.Api", "SmartCache.Api\SmartCache.Api.csproj", "{3BDA458D-C70C-4A2A-973F-DA23249E2014}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCache.StressTest", "SmartCache.StressTest\SmartCache.StressTest.csproj", "{E321B877-0E96-40D0-8E3D-4CB711EF6887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCache.Tests", "SmartCache.Tests\SmartCache.Tests.csproj", "{E8BB08A4-97B8-4038-A530-1A9D44A63D20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{3BDA458D-C70C-4A2A-973F-DA23249E2014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BDA458D-C70C-4A2A-973F-DA23249E2014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BDA458D-C70C-4A2A-973F-DA23249E2014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E321B877-0E96-40D0-8E3D-4CB711EF6887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E321B877-0E96-40D0-8E3D-4CB711EF6887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E321B877-0E96-40D0-8E3D-4CB711EF6887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E321B877-0E96-40D0-8E3D-4CB711EF6887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8BB08A4-97B8-4038-A530-1A9D44A63D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BB08A4-97B8-4038-A530-1A9D44A63D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BB08A4-97B8-4038-A530-1A9D44A63D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BB08A4-97B8-4038-A530-1A9D44A63D20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
