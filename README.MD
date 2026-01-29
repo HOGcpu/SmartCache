@@ -199,18 +199,16 @@ The system includes a basic security layer to protect the API from unauthorized 
 
 - The current security middleware is intentionally lightweight and serves as a proof of concept.
 - No external identity provider or JWT validation is implemented due to time constraints.
-- HTTPS is assumed for all environments to protect data in transit.
 
 This approach provides a reasonable baseline for securing the API while keeping the implementation simple and easy to extend in the future.
 
 ## Possible Improvements
 
-- Add a global exception handling middleware to ensure consistent error responses across the API
-- Replace static API key authentication with Azure AD for improved security
+- Add a global exception handling middleware to ensure consistent error responses
+- Replace static API key authentication with Azure AD
 - Introduce rate limiting to protect against abuse
-- Add structured logging and distributed tracing (OpenTelemetry)
-- Improve email validation using a dedicated validator or regex with proper RFC support
-- Implement health checks for production deployments
+- Add structured logging
+- Improve email validation using a dedicated validator or regex
 - Add retry and fallback mechanisms for Azure Blob Storage connectivity issues
 
 ## Notes
